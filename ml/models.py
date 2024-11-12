@@ -8,10 +8,9 @@ import os
 # Load dataset
 # Using an IMDb movie review dataset or creating a simple one for this example
 data = pd.DataFrame({
-    'text': ["I loved the movie", "The movie was terrible", "Best film ever", "Worst film", "It was okay","This was an amazing experience!","I'm thrilled with the outcome!.","I hated this movie."," Very disappointed.","Terrible acting a weak script and awful special effects.", "This movie was a complete disaster."],
-    'label': [1, 0, 1, 0, 1 , 1 , 1 , 0 , 0 , 0, 0]
+    'text': ["The movie was terrible", "Worst movie","I hated this movie."," Very disappointed.","Terrible acting a weak script and awful special effects.", "This movie was a complete disaster.","I loved the movie!","Best film ever","It was okay","This was an amazing experience!","I really enjoyed the movie!"],
+    'label': [0,0,0,0,0,0,1,1,1,1,1]
 })
-
 # Split dataset into training and testing sets
 X_train, X_test, y_train, y_test = train_test_split(data['text'], data['label'], test_size=0.2, random_state=42)
 
