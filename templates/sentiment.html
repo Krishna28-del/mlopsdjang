@@ -1,0 +1,113 @@
+<!-- sentiment_app/templates/sentiment_app/sentiment.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sentiment Analysis</title>
+    <style>
+        /* Basic Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Body styling */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f7;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            color: #333;
+        }
+
+        /* Container for form and result */
+        .container {
+            background-color: #ffffff;
+            width: 90%;
+            max-width: 500px;
+            padding: 20px 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            text-align: center;
+        }
+
+        /* Header styling */
+        h1 {
+            font-size: 1.8em;
+            color: #444;
+            margin-bottom: 20px;
+        }
+
+        /* Form label styling */
+        label {
+            font-weight: bold;
+            display: block;
+            margin-bottom: 8px;
+            font-size: 1em;
+            color: #555;
+        }
+
+        /* Textarea styling */
+        textarea {
+            width: 100%;
+            padding: 10px;
+            font-size: 1em;
+            border: 1px solid #cccccc;
+            border-radius: 5px;
+            resize: vertical;
+            margin-bottom: 15px;
+            transition: border-color 0.3s;
+        }
+
+        /* Textarea hover effect */
+        textarea:focus {
+            outline: none;
+            border-color: #4caf50;
+            box-shadow: 0 0 5px rgba(76, 175, 80, 0.2);
+        }
+
+        /* Submit button styling */
+        input[type="submit"] {
+            background-color: #4caf50;
+            color: #fff;
+            padding: 10px 20px;
+            font-size: 1em;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        /* Submit button hover effect */
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+
+        /* Result display styling */
+        .result {
+            margin-top: 20px;
+            font-size: 1.2em;
+            font-weight: bold;
+            color: #333;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Sentiment Analysis</h1>
+        <form method="post">
+            {% csrf_token %}
+            <label for="text">Enter your movie review:</label>
+            <textarea name="text" id="text" rows="4" placeholder="Type your review here..."></textarea>
+            <input type="submit" value="Analyze">
+        </form>
+        {% if result %}
+            <div class="result">Result: {{ result }}</div>
+        {% endif %}
+    </div>
+</body>
+</html>
